@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AfterUber</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <style>
+        .header {
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #e5e5e5;
+        }
+        .item p {
+            margin: 0;
+        }
+        .item a {
+            color: rgba(109, 109, 109, 0.69);
+        }
+    </style>
+  </head>
+  <body>
+    <div class="container-fluid">
+        <div class="header clearfix">
+            <h1 class="text-muted">AfterUber</h1>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <form id="formRideRate" action="/service/">
+                    <div class="row">
+                        <div class="col-md-5">
+                          <div class="form-group">
+                              <label for="start_address">Start address</label>
+                              <input type="text" class="form-control" id="start_address" placeholder="Pickup address...">
+                          </div>
+                          <div class="form-group">
+                            <label for="end_address">End Address</label>
+                            <input type="text" class="form-control" id="end_address" placeholder="Destination address...">
+                          </div>
+                            <input type="hidden" name="start_latitude" id="start_latitude" />
+                            <input type="hidden" name="start_longitude" id="start_longitude" />
+                            <input type="hidden" name="end_latitude" id="end_latitude"/>
+                            <input type="hidden" name="end_longitude" id="end_longitude" />
+                            <button type="submit" class="btn btn-default">Get Rates</button>
+                            <span style="margin-left: 10px;"><img src="{{ url_for('static', filename='img/ajax-loader.gif') }}" id="loading" style="display: none" /></span>
+                        </div>
+                        <div class="col-md-5">
+                            <div id="estimates-container" style="display: none; padding: 15px; border-left: 1px solid #ccc;">
+                                <h3>Available Services</h3>
+                                <div class="items"></div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/afteruber.js') }}"></script>
+  </body>
+</html>
