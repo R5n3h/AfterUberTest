@@ -9,7 +9,7 @@ DEBUG = True
 
 app = Flask(__name__)
 
-INSERT_SERVER_TOKEN_HERE = 'rXFtyR-_8FnRpknNVFkDlkb1Psi_B-bdVa2mD_Pf'
+INSERT_SERVER_TOKEN_HERE = '' # Uber API Server token
 
 @app.route('/')
 def index():
